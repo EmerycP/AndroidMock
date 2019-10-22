@@ -57,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nom = et.getText().toString();
+
+                String nomUser = "emerycp";
+
 
                 //Username
-                service.utilisateur(nom).enqueue(new Callback<Utilisateur>() {
+                service.utilisateur(nomUser).enqueue(new Callback<Utilisateur>() {
                     @Override
                     public void onResponse(Call<Utilisateur> call, Response<Utilisateur> response) {
                         if (response.isSuccessful())
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 //ListRepos
-                service.listRepos(nom).enqueue(new Callback<List<Repos>>() {
+                service.listRepos(nomUser).enqueue(new Callback<List<Repos>>() {
                     @Override
                     public void onResponse(Call<List<Repos>> call, Response<List<Repos>> response) {
                         if (response.isSuccessful())
